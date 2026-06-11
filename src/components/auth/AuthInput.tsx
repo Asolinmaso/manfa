@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { forwardRef, useState } from "react";
 import styles from "./AuthInput.module.css";
+import alertStyles from "./AuthAlert.module.css";
 
 type AuthInputProps = {
   id: string;
@@ -9,42 +10,65 @@ type AuthInputProps = {
   type?: "text" | "email" | "password";
   name?: string;
   autoComplete?: string;
+  error?: string;
+  disabled?: boolean;
 };
 
-export function AuthInput({
-  id,
-  label,
-  type = "text",
-  name,
-  autoComplete,
-}: AuthInputProps) {
-  const [showPassword, setShowPassword] = useState(false);
-  const isPassword = type === "password";
-  const inputType = isPassword && showPassword ? "text" : type;
+export const AuthInput = forwardRef<HTMLInputElement, AuthInputProps>(
+  function AuthInput(
+    {
+      id,
+      label,
+      type = "text",
+      name,
+      autoComplete,
+      error,
+      disabled,
+      ...rest
+    },
+    ref,
+  ) {
+    const [showPassword, setShowPassword] = useState(false);
+    const isPassword = type === "password";
+    const inputType = isPassword && showPassword ? "text" : type;
 
-  return (
-    <div className={styles.field}>
-      <input
-        id={id}
-        name={name ?? id}
-        type={inputType}
-        placeholder={label}
-        autoComplete={autoComplete}
-        className={styles.input}
-      />
-      {isPassword && (
-        <button
-          type="button"
-          className={styles.toggle}
-          onClick={() => setShowPassword(!showPassword)}
-          aria-label={showPassword ? "Hide password" : "Show password"}
-        >
-          <EyeIcon hidden={showPassword} />
-        </button>
-      )}
-    </div>
-  );
-}
+    return (
+      <div className={styles.wrapper}>
+        <div className={`${styles.field} ${error ? styles.fieldInvalid : ""}`}>
+          <input
+            ref={ref}
+            id={id}
+            name={name ?? id}
+            type={inputType}
+            placeholder={label}
+            autoComplete={autoComplete}
+            disabled={disabled}
+            className={styles.input}
+            aria-invalid={Boolean(error)}
+            aria-describedby={error ? `${id}-error` : undefined}
+            {...rest}
+          />
+          {isPassword && (
+            <button
+              type="button"
+              className={styles.toggle}
+              onClick={() => setShowPassword(!showPassword)}
+              aria-label={showPassword ? "Hide password" : "Show password"}
+              tabIndex={-1}
+            >
+              <EyeIcon hidden={showPassword} />
+            </button>
+          )}
+        </div>
+        {error ? (
+          <p id={`${id}-error`} className={alertStyles.fieldError}>
+            {error}
+          </p>
+        ) : null}
+      </div>
+    );
+  },
+);
 
 function EyeIcon({ hidden }: { hidden: boolean }) {
   if (hidden) {

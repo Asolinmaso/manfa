@@ -1,3 +1,7 @@
+.wrapper {
+  width: 100%;
+}
+
 .field {
   position: relative;
   display: flex;
@@ -5,6 +9,10 @@
   width: 100%;
   padding: 10px;
   border-bottom: 1px solid var(--input-border);
+}
+
+.fieldInvalid {
+  border-bottom-color: #b42318;
 }
 
 .input {

@@ -1,0 +1,16 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  background: var(--burgundy);
+  color: var(--button-cream);
+  font-family: var(--font-sans), sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+
+.button:hover {
+  opacity: 0.92;
+}

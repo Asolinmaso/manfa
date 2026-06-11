@@ -6,6 +6,7 @@ import { mainNav, isInternalHref } from "@/data/navigation";
 import { images } from "@/data/homeContent";
 import { cartCount as defaultCartCount } from "@/data/cartContent";
 import { SafeImage } from "@/components/ui/SafeImage";
+import { useAuth } from "@/components/auth/AuthProvider";
 import styles from "./SiteHeader.module.css";
 
 type SiteHeaderProps = {
@@ -21,7 +22,9 @@ export function SiteHeader({
 }: SiteHeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [logoError, setLogoError] = useState(false);
+  const { user, loading } = useAuth();
   const isSolid = variant === "solid";
+  const isAuthenticated = Boolean(user?.emailVerified);
 
   return (
     <header
@@ -87,7 +90,7 @@ export function SiteHeader({
             />
           </label>
 
-          {isSolid ? (
+          {isSolid || isAuthenticated ? (
             <div className={styles.iconActions}>
               <IconButton label="Wishlist" href="/wishlist">
                 <HeartIcon />
@@ -99,15 +102,18 @@ export function SiteHeader({
               >
                 <CartIcon />
               </IconButton>
-              <IconButton label="Profile" href="/account">
+              <IconButton
+                label={isAuthenticated ? "Profile" : "Login"}
+                href={isAuthenticated ? "/account" : "/login"}
+              >
                 <ProfileIcon />
               </IconButton>
             </div>
-          ) : (
+          ) : !loading ? (
             <Link href="/login" className={styles.loginBtn}>
               Log In
             </Link>
-          )}
+          ) : null}
 
           <button
             type="button"

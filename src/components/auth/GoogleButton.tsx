@@ -2,14 +2,17 @@ import styles from "./GoogleButton.module.css";
 
 type GoogleButtonProps = {
   label: string;
+  redirect?: string;
 };
 
-export function GoogleButton({ label }: GoogleButtonProps) {
+export function GoogleButton({ label, redirect = "/account" }: GoogleButtonProps) {
+  const href = `/api/auth/google?redirect=${encodeURIComponent(redirect)}`;
+
   return (
-    <button type="button" className={styles.button}>
+    <a href={href} className={styles.button}>
       <GoogleIcon />
       <span>{label}</span>
-    </button>
+    </a>
   );
 }
 

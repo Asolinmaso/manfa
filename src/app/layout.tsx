@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { DM_Serif_Display, Inter, Poppins } from "next/font/google";
+import { AuthProvider } from "@/components/auth/AuthProvider";
 import "./globals.css";
 
 const dmSerif = DM_Serif_Display({
@@ -32,7 +33,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${dmSerif.variable} ${inter.variable} ${poppins.variable}`}>
-      <body>{children}</body>
+      <body>
+        <AuthProvider>{children}</AuthProvider>
+      </body>
     </html>
   );
 }
