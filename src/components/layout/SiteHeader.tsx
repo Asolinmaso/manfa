@@ -4,15 +4,21 @@ import Link from "next/link";
 import { useState } from "react";
 import { mainNav, isInternalHref } from "@/data/navigation";
 import { images } from "@/data/homeContent";
+import { cartCount as defaultCartCount } from "@/data/cartContent";
 import { SafeImage } from "@/components/ui/SafeImage";
 import styles from "./SiteHeader.module.css";
 
 type SiteHeaderProps = {
   variant: "overlay" | "solid";
   activeHref?: string;
+  cartCount?: number;
 };
 
-export function SiteHeader({ variant, activeHref = "/" }: SiteHeaderProps) {
+export function SiteHeader({
+  variant,
+  activeHref = "/",
+  cartCount = defaultCartCount,
+}: SiteHeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [logoError, setLogoError] = useState(false);
   const isSolid = variant === "solid";
@@ -86,7 +92,11 @@ export function SiteHeader({ variant, activeHref = "/" }: SiteHeaderProps) {
               <IconButton label="Wishlist" href="/wishlist">
                 <HeartIcon />
               </IconButton>
-              <IconButton label="Cart" href="#">
+              <IconButton
+                label="Cart"
+                href="/cart"
+                badge={cartCount > 0 ? String(cartCount).padStart(2, "0") : undefined}
+              >
                 <CartIcon />
               </IconButton>
               <IconButton label="Profile" href="/account">
@@ -120,14 +130,17 @@ function IconButton({
   label,
   href,
   children,
+  badge,
 }: {
   label: string;
   href: string;
   children: React.ReactNode;
+  badge?: string;
 }) {
   return (
     <Link href={href} className={styles.iconBtn} aria-label={label}>
       {children}
+      {badge ? <span className={styles.cartBadge}>{badge}</span> : null}
     </Link>
   );
 }

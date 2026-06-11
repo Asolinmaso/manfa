@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { Footer } from "@/components/home/Footer";
 import { SectionContainer } from "@/components/ui/SectionContainer";
-import { AccountTabs } from "@/components/account/AccountTabs";
+import { ProfileTabs } from "@/components/profile/ProfileTabs";
+import { OrdersPageContent } from "@/components/profile/OrdersPageContent";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -15,9 +16,9 @@ export default function AccountOrdersPage() {
     <>
       <SiteHeader variant="solid" />
       <main className={styles.main}>
-        <AccountTabs activeTab="orders" />
+        <ProfileTabs activeTab="orders" />
         <SectionContainer className={styles.content}>
-          <p className={styles.placeholder}>Your orders will appear here.</p>
+          <OrdersPageContent />
         </SectionContainer>
       </main>
       <Footer />

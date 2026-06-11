@@ -1,0 +1,163 @@
+.table {
+  width: 100%;
+}
+
+.headerRow,
+.bodyRow {
+  display: grid;
+  align-items: center;
+  gap: 16px;
+  padding: clamp(16px, 2.5vw, 24px) 0;
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.headerRow {
+  font-family: var(--font-sans), sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--text-primary);
+  padding-top: 0;
+}
+
+.headerRow,
+.bodyRow {
+  grid-template-columns: 1fr auto auto;
+}
+
+.headerPast,
+.bodyPast {
+  grid-template-columns: 1fr auto auto minmax(140px, auto);
+}
+
+.productCol {
+  min-width: 0;
+}
+
+.quantityCol,
+.priceCol {
+  text-align: center;
+  min-width: 80px;
+}
+
+.actionCol {
+  min-width: 140px;
+}
+
+.productCell {
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 2.5vw, 24px);
+}
+
+.imageWrap {
+  flex-shrink: 0;
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  background: var(--placeholder);
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.productInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.productName {
+  font-family: var(--font-sans), sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--text-primary);
+}
+
+.productMeta {
+  font-family: var(--font-sans), sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--text-primary);
+}
+
+.cellValue {
+  font-family: var(--font-sans), sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.2;
+  color: #141414;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+}
+
+.actionBtn {
+  font-family: var(--font-sans), sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.2;
+  color: #f7f1ec;
+  background: #47161a;
+  padding: 10px 16px;
+  white-space: nowrap;
+  transition: opacity 0.2s ease;
+}
+
+.actionBtn:hover {
+  opacity: 0.85;
+}
+
+@media (max-width: 768px) {
+  .headerRow {
+    display: none;
+  }
+
+  .bodyRow {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 20px 0;
+  }
+
+  .bodyPast {
+    grid-template-columns: 1fr;
+  }
+
+  .quantityCol,
+  .priceCol {
+    text-align: left;
+    display: flex;
+    gap: 8px;
+  }
+
+  .quantityCol::before {
+    content: "Quantity: ";
+    font-weight: 400;
+    font-size: 16px;
+  }
+
+  .priceCol::before {
+    content: "Total Price: ";
+    font-weight: 400;
+    font-size: 16px;
+  }
+
+  .actionCol {
+    min-width: 0;
+  }
+
+  .actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}

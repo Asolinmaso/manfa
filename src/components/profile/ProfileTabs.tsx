@@ -18,7 +18,7 @@ export function ProfileTabs({ activeTab }: ProfileTabsProps) {
               My Account
             </span>
           ) : (
-            <Link href="/profile" className={styles.inactive}>
+            <Link href="/account" className={styles.inactive}>
               My Account
             </Link>
           )}
@@ -29,7 +29,7 @@ export function ProfileTabs({ activeTab }: ProfileTabsProps) {
               My Orders
             </span>
           ) : (
-            <Link href="/profile/orders" className={styles.inactive}>
+            <Link href="/account/orders" className={styles.inactive}>
               My Orders
             </Link>
           )}

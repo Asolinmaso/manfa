@@ -133,11 +133,31 @@
 }
 
 .iconBtn {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--cream);
   transition: opacity 0.2s;
+}
+
+.cartBadge {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  height: 24px;
+  padding: 0 4px;
+  border-radius: 999px;
+  background: #ffffff;
+  color: var(--burgundy);
+  font-family: var(--font-sans), sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
 }
 
 .iconBtn:hover {

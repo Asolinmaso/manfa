@@ -1,0 +1,11 @@
+.main {
+  flex: 1;
+  background: var(--cream);
+  padding: 48px var(--section-padding) 0;
+}
+
+@media (max-width: 768px) {
+  .main {
+    padding: 32px var(--section-padding) 0;
+  }
+}

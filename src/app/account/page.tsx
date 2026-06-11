@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { Footer } from "@/components/home/Footer";
 import { SectionContainer } from "@/components/ui/SectionContainer";
-import { AccountTabs } from "@/components/account/AccountTabs";
+import { ProfileTabs } from "@/components/profile/ProfileTabs";
 import { ProfileSection } from "@/components/account/ProfileSection";
 import { AddressesSection } from "@/components/account/AddressesSection";
 import { accountUser, savedAddresses } from "@/data/accountContent";
@@ -18,7 +18,7 @@ export default function AccountPage() {
     <>
       <SiteHeader variant="solid" />
       <main className={styles.main}>
-        <AccountTabs activeTab="account" />
+        <ProfileTabs activeTab="account" />
         <SectionContainer className={styles.content}>
           <ProfileSection user={accountUser} />
           <AddressesSection addresses={savedAddresses} />

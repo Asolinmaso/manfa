@@ -4,12 +4,6 @@
 }
 
 .content {
-  padding-top: clamp(32px, 5vw, 48px);
-  padding-bottom: clamp(48px, 8vw, 80px);
-}
-
-.placeholder {
-  font-family: var(--font-sans), sans-serif;
-  font-size: clamp(18px, 2.5vw, 24px);
-  color: var(--text-muted);
+  padding-top: 48px;
+  padding-bottom: 80px;
 }
