@@ -1,0 +1,132 @@
+.section {
+  padding: 80px 0;
+}
+
+.heading {
+  font-family: var(--font-serif), serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.2;
+  text-align: center;
+  color: var(--text-muted);
+  margin-bottom: 40px;
+}
+
+.grid {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.card {
+  flex: 1 1 260px;
+  max-width: 294px;
+  min-height: 219px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.cardLight {
+  background: var(--offer-light);
+  color: var(--burgundy);
+}
+
+.cardDark {
+  background: var(--burgundy);
+  color: var(--cream);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: 17px;
+  margin-bottom: 16px;
+}
+
+.iconCircle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.iconDark {
+  background: var(--burgundy);
+  color: var(--cream);
+}
+
+.iconLight {
+  background: var(--cream);
+  color: var(--burgundy);
+}
+
+.cardTitle {
+  font-family: var(--font-sans), sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 29px;
+}
+
+.cardSubtitle {
+  font-family: var(--font-sans), sans-serif;
+  font-size: 16px;
+  line-height: 19px;
+  margin-top: 8px;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid currentColor;
+  margin: 16px 0;
+  opacity: 0.8;
+}
+
+.code {
+  font-family: var(--font-sans), sans-serif;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.copyBtn {
+  margin-top: auto;
+  align-self: center;
+  padding: 12px 24px;
+  font-family: var(--font-sans), sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+  transition: opacity 0.2s;
+}
+
+.copyBtn:hover {
+  opacity: 0.9;
+}
+
+.copyDark {
+  background: var(--burgundy);
+  color: var(--cream);
+}
+
+.copyLight {
+  background: var(--cream);
+  color: var(--burgundy);
+}
+
+@media (max-width: 768px) {
+  .grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    max-width: 100%;
+    width: 100%;
+  }
+}

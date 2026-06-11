@@ -1,0 +1,34 @@
+.main {
+  flex: 1;
+  background: var(--cream);
+}
+
+.mainSection {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    gap: 48px;
+  }
+}
+
+@media (max-width: 768px) {
+  .mainSection {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}

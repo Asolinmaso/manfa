@@ -1,0 +1,167 @@
+.footer {
+  background: var(--burgundy);
+  color: var(--cream);
+  padding: 80px 0 40px;
+}
+
+.inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--section-padding);
+}
+
+.top {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 60px;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.logo {
+  width: auto;
+  height: 76px;
+  object-fit: contain;
+}
+
+.logoText {
+  font-family: var(--font-serif), serif;
+  font-size: 48px;
+  color: var(--cream);
+  text-transform: lowercase;
+}
+
+.tagline {
+  font-family: var(--font-sans), sans-serif;
+  font-size: clamp(18px, 2vw, 24px);
+  line-height: 29px;
+  max-width: 343px;
+}
+
+.social {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--cream);
+  color: var(--burgundy);
+  transition: opacity 0.2s;
+}
+
+.socialLink:hover {
+  opacity: 0.9;
+}
+
+.columnTitle {
+  font-family: var(--font-sans), sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 29px;
+  margin-bottom: 24px;
+}
+
+.linkList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.link {
+  font-family: var(--font-sans), sans-serif;
+  font-size: 20px;
+  line-height: 24px;
+  transition: opacity 0.2s;
+}
+
+.link:hover {
+  opacity: 0.8;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.decorativeLine {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex: 1;
+  min-width: 120px;
+  max-width: 564px;
+}
+
+.decorativeGroup {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--cream);
+  flex-shrink: 0;
+}
+
+.dividerText {
+  font-family: var(--font-serif), serif;
+  font-size: 24px;
+  line-height: 33px;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.copyright {
+  font-family: var(--font-sans), sans-serif;
+  font-size: 16px;
+  line-height: 32px;
+  text-align: center;
+}
+
+@media (max-width: 1024px) {
+  .top {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .brand {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 768px) {
+  .top {
+    grid-template-columns: 1fr;
+  }
+
+  .decorativeLine {
+    display: none;
+  }
+
+  .divider {
+    gap: 8px;
+  }
+}

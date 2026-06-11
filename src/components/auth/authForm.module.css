@@ -1,0 +1,131 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 100%;
+  max-width: 461px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.title {
+  font-family: var(--font-serif), serif;
+  font-size: 32px;
+  line-height: 44px;
+  color: var(--text-primary);
+}
+
+.subtitle {
+  font-family: var(--font-sans), sans-serif;
+  font-size: 16px;
+  line-height: 19px;
+  color: var(--text-primary);
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.inputStack {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.forgotLink {
+  font-family: var(--font-sans), sans-serif;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: right;
+  text-decoration: underline;
+  color: var(--text-primary);
+}
+
+.submitBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 10px;
+  min-height: 48px;
+  background: var(--burgundy);
+  font-family: var(--font-poppins), var(--font-sans), sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 30px;
+  color: var(--button-cream);
+  transition: opacity 0.2s;
+}
+
+.submitBtn:hover {
+  opacity: 0.92;
+}
+
+.socialSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.footerText {
+  font-family: var(--font-sans), sans-serif;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  color: var(--text-primary);
+}
+
+.footerText a {
+  text-decoration: underline;
+}
+
+.checkboxRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.checkbox {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  accent-color: var(--burgundy);
+}
+
+.checkboxLabel {
+  font-family: var(--font-sans), sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--text-primary);
+}
+
+.checkboxLabel a {
+  text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 28px;
+    line-height: 36px;
+  }
+}

@@ -1,0 +1,32 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 32px;
+  font-family: var(--font-sans), sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+  transition: opacity 0.2s ease;
+}
+
+.button:hover {
+  opacity: 0.9;
+}
+
+.cream {
+  background: var(--cream);
+  color: var(--burgundy);
+}
+
+.burgundy {
+  background: var(--burgundy);
+  color: var(--cream);
+}
+
+@media (max-width: 768px) {
+  .button {
+    padding: 14px 24px;
+    font-size: 18px;
+  }
+}

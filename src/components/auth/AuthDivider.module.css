@@ -1,0 +1,22 @@
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  width: 100%;
+}
+
+.line {
+  flex: 1;
+  height: 1px;
+  background: var(--text-primary);
+}
+
+.text {
+  flex-shrink: 0;
+  padding: 0 10px;
+  background: var(--auth-bg);
+  font-family: var(--font-sans), sans-serif;
+  font-size: 12px;
+  line-height: 15px;
+  color: var(--text-primary);
+}

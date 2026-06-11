@@ -1,0 +1,125 @@
+.section {
+  width: 100%;
+  max-width: 1240px;
+}
+
+.rule {
+  height: 1px;
+  background: var(--border-light);
+  margin-bottom: clamp(32px, 5vw, 48px);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.heading {
+  font-family: var(--font-sans), sans-serif;
+  font-size: clamp(24px, 4vw, 32px);
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.addBtn {
+  flex-shrink: 0;
+  padding: 12px 24px;
+  font-family: var(--font-sans), sans-serif;
+  font-size: clamp(16px, 2vw, 20px);
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--sidebar-bg);
+  background: var(--burgundy);
+  transition: opacity 0.2s ease;
+}
+
+.addBtn:hover {
+  opacity: 0.9;
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.card {
+  padding: 32px;
+  background: var(--sidebar-bg);
+  border: 1px solid #c7c7c7;
+  border-radius: 4px;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.titleGroup {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--text-primary);
+}
+
+.cardTitle {
+  font-family: var(--font-sans), sans-serif;
+  font-size: clamp(18px, 2.5vw, 24px);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.cardActions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.iconBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+  padding: 4px;
+  transition: opacity 0.2s ease;
+}
+
+.iconBtn:hover {
+  opacity: 0.7;
+}
+
+.addressText {
+  font-family: var(--font-sans), sans-serif;
+  font-size: clamp(16px, 2vw, 20px);
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+@media (max-width: 640px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .addBtn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .card {
+    padding: 24px;
+  }
+
+  .cardHeader {
+    flex-wrap: wrap;
+  }
+}
