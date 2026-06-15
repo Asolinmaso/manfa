@@ -1,20 +1,22 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import { SectionContainer } from "@/components/ui/SectionContainer";
 import { ShopSidebar } from "./ShopSidebar";
 import { ShopProductCard } from "./ShopProductCard";
 import {
-  shopProducts,
+  shopProducts as staticProducts,
   productsPerPage,
   sortOptions,
   priceRangeDefaults,
   type ShopCategory,
+  type ShopProduct,
   type SortValue,
 } from "@/data/shopContent";
 import styles from "./ShopPageContent.module.css";
 
 export function ShopPageContent() {
+  const [products, setProducts] = useState<ShopProduct[]>(staticProducts);
   const [activeCategory, setActiveCategory] = useState<ShopCategory>("New Arrivals");
   const [priceMin, setPriceMin] = useState<number>(priceRangeDefaults.min);
   const [priceMax, setPriceMax] = useState<number>(priceRangeDefaults.max);
@@ -24,8 +26,26 @@ export function ShopPageContent() {
   const [visibleCount, setVisibleCount] = useState(productsPerPage);
   const [filtersOpen, setFiltersOpen] = useState(false);
 
+  // Fetch live products from the DB; fall back to static data on error
+  useEffect(() => {
+    let cancelled = false;
+    fetch("/api/products")
+      .then((res) => res.ok ? res.json() : null)
+      .then((json) => {
+        if (cancelled) return;
+        if (json?.data && Array.isArray(json.data) && json.data.length > 0) {
+          setProducts(json.data as ShopProduct[]);
+        }
+        // If empty DB, keep static products so the page isn't blank
+      })
+      .catch(() => {
+        // Network error — keep static products
+      });
+    return () => { cancelled = true; };
+  }, []);
+
   const filteredProducts = useMemo(() => {
-    let results = shopProducts.filter((product) => {
+    let results = products.filter((product) => {
       const inCategory = product.category === activeCategory;
       const inPrice = product.price >= priceMin && product.price <= priceMax;
       const inSize =
@@ -53,7 +73,7 @@ export function ShopPageContent() {
     }
 
     return results;
-  }, [activeCategory, priceMin, priceMax, selectedSizes, searchQuery, sortBy]);
+  }, [products, activeCategory, priceMin, priceMax, selectedSizes, searchQuery, sortBy]);
 
   const visibleProducts = filteredProducts.slice(0, visibleCount);
   const hasMore = visibleCount < filteredProducts.length;

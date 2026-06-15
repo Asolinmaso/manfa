@@ -1,14 +1,12 @@
 import type { Metadata } from "next";
-import { SiteHeader } from "@/components/layout/SiteHeader";
-import { Footer } from "@/components/home/Footer";
-import { SectionContainer } from "@/components/ui/SectionContainer";
-import { requireRole } from "@/lib/auth/rbac";
 import { redirect } from "next/navigation";
-import styles from "./page.module.css";
+import { SiteHeader } from "@/components/layout/SiteHeader";
+import { requireRole } from "@/lib/auth/rbac";
+import { AdminProductsClient } from "@/components/admin/AdminProductsClient";
 
 export const metadata: Metadata = {
-  title: "Admin | Manfa",
-  description: "Manfa admin dashboard.",
+  title: "Admin — Product Management | Manfa",
+  description: "Manage products in the Manfa store.",
 };
 
 export default async function AdminPage() {
@@ -20,15 +18,9 @@ export default async function AdminPage() {
   return (
     <>
       <SiteHeader variant="solid" />
-      <main className={styles.main}>
-        <SectionContainer>
-          <h1 className={styles.title}>Admin Dashboard</h1>
-          <p className={styles.text}>
-            Welcome, {result.user.name}. You have administrator access.
-          </p>
-        </SectionContainer>
+      <main>
+        <AdminProductsClient adminName={result.user.name} />
       </main>
-      <Footer />
     </>
   );
 }

@@ -1,0 +1,329 @@
+/* ──────────────────────────────────────────
+   Product Form Modal — dark glass style
+   ────────────────────────────────────────── */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 1rem;
+  animation: fadeIn 0.15s ease;
+}
+
+.modal {
+  background: #13131c;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1.25rem;
+  padding: 2rem;
+  width: 100%;
+  max-width: 540px;
+  max-height: 90vh;
+  overflow-y: auto;
+  animation: scaleIn 0.2s ease;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,0.1) transparent;
+}
+
+/* ── Modal Header ── */
+.modalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.75rem;
+}
+
+.modalTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #f1f0ef;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.closeBtn {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.5rem;
+  color: #9999aa;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  flex-shrink: 0;
+}
+
+.closeBtn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #f1f0ef;
+}
+
+/* ── Form Grid ── */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: #6b6b7b;
+}
+
+.required {
+  color: #f87171;
+  margin-left: 2px;
+}
+
+.input,
+.select,
+.textarea {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.5rem;
+  padding: 0.625rem 0.875rem;
+  color: #f1f0ef;
+  font-size: 0.875rem;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.input:focus,
+.select:focus,
+.textarea:focus {
+  border-color: #c9a96e;
+  background: rgba(201, 169, 110, 0.05);
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: #4a4a5a;
+}
+
+.input.error,
+.select.error,
+.textarea.error {
+  border-color: #f87171;
+}
+
+.errorMsg {
+  font-size: 0.75rem;
+  color: #f87171;
+  margin: 0;
+}
+
+.select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236b6b7b' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.875rem center;
+  padding-right: 2.5rem;
+}
+
+/* ── Sizes Grid ── */
+.sizesGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.sizeBtn {
+  padding: 0.35rem 0.75rem;
+  border-radius: 0.375rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.05);
+  color: #9999aa;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+  user-select: none;
+}
+
+.sizeBtn:hover {
+  border-color: rgba(201, 169, 110, 0.4);
+  color: #c9a96e;
+}
+
+.sizeBtnActive {
+  composes: sizeBtn;
+  background: rgba(201, 169, 110, 0.15);
+  border-color: #c9a96e;
+  color: #c9a96e;
+}
+
+/* ── Toggle ── */
+.toggleRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.5rem;
+}
+
+.toggleLabel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.toggleTitle {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #f1f0ef;
+}
+
+.toggleSub {
+  font-size: 0.75rem;
+  color: #6b6b7b;
+}
+
+.toggle {
+  position: relative;
+  width: 42px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+.toggleTrack {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.toggle input:checked + .toggleTrack {
+  background: #c9a96e;
+}
+
+.toggleTrack::after {
+  content: "";
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  width: 18px;
+  height: 18px;
+  background: #fff;
+  border-radius: 50%;
+  transition: transform 0.2s;
+}
+
+.toggle input:checked + .toggleTrack::after {
+  transform: translateX(18px);
+}
+
+/* ── Image Preview ── */
+.imagePreview {
+  width: 100%;
+  height: 140px;
+  border-radius: 0.5rem;
+  object-fit: cover;
+  margin-top: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: block;
+}
+
+/* ── Form Footer ── */
+.formFooter {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: flex-end;
+  margin-top: 0.5rem;
+}
+
+.cancelBtn {
+  padding: 0.625rem 1.25rem;
+  background: rgba(255, 255, 255, 0.07);
+  color: #c9c9d3;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.cancelBtn:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.submitBtn {
+  padding: 0.625rem 1.5rem;
+  background: linear-gradient(135deg, #c9a96e 0%, #a07840 100%);
+  color: #0a0a0f;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s, transform 0.1s;
+}
+
+.submitBtn:hover:not(:disabled) {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.submitBtn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* ── Animations ── */
+@keyframes fadeIn {
+  from { opacity: 0 }
+  to   { opacity: 1 }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.93); opacity: 0 }
+  to   { transform: scale(1);   opacity: 1 }
+}
+
+/* ── Responsive ── */
+@media (max-width: 500px) {
+  .modal {
+    padding: 1.25rem;
+  }
+
+  .row {
+    grid-template-columns: 1fr;
+  }
+}

@@ -21,7 +21,7 @@ function isAdminRoute(pathname: string) {
   return pathname === ADMIN_PREFIX || pathname.startsWith(`${ADMIN_PREFIX}/`);
 }
 
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const accessToken = request.cookies.get(ACCESS_COOKIE)?.value;
   const session = accessToken ? await verifyAccessToken(accessToken) : null;
