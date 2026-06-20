@@ -53,6 +53,7 @@
   line-height: 24px;
   color: var(--text-primary);
   transition: opacity 0.2s;
+  white-space: nowrap;
 }
 
 .cta:hover {

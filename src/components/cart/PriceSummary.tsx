@@ -3,7 +3,17 @@
 import { priceBreakdown } from "@/data/cartContent";
 import styles from "./PriceSummary.module.css";
 
-export function PriceSummary() {
+type PriceSummaryProps = {
+  itemCount?: number;
+};
+
+export function PriceSummary({ itemCount }: PriceSummaryProps) {
+  const count = itemCount ?? priceBreakdown.itemCount;
+
+  const handleCheckout = () => {
+    alert("Proceeding to checkout… (payment integration coming soon)");
+  };
+
   return (
     <aside className={styles.panel}>
       <h2 className={styles.title}>Price Details</h2>
@@ -11,7 +21,7 @@ export function PriceSummary() {
 
       <div className={styles.rows}>
         <div className={styles.row}>
-          <span>Price ({priceBreakdown.itemCount} Items)</span>
+          <span>Price ({count} Items)</span>
           <span>{priceBreakdown.subtotalLabel}</span>
         </div>
         <div className={styles.row}>
@@ -56,7 +66,7 @@ export function PriceSummary() {
         </form>
       </div>
 
-      <button type="button" className={styles.checkoutBtn}>
+      <button type="button" className={styles.checkoutBtn} onClick={handleCheckout}>
         Checkout
       </button>
     </aside>

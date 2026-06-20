@@ -32,14 +32,14 @@ export const categories = [
     title: "Women",
     description: "Timeless silhouettes for modern living.",
     cta: "Explore Women Collection",
-    href: "#women",
+    href: "/shop",
     image: "/home/Women.png",
   },
   {
     title: "Men",
     description: "Refined essentials for every occasion.",
     cta: "Explore Men Collection",
-    href: "#men",
+    href: "/shop",
     image: "/home/Men.png",
   },
 ] as const;
@@ -69,27 +69,27 @@ export const newArrivals = [
   {
     name: "Emerald Tailored Suit",
     price: "₹5,990",
-    image: "/home/new-arrivals-1.png",
+    image: "/home/Women.png",
   },
   {
     name: "Charcoal Utility Overshirt",
     price: "₹5,990",
-    image: "/home/new-arrivals-2.png",
+    image: "/home/Men.png",
   },
   {
     name: "Midnight Wrap Dress",
     price: "₹5,990",
-    image: "/home/new-arrivals-3.png",
+    image: "/home/Explore.png",
   },
   {
     name: "Camel Knit Polo",
     price: "₹5,990",
-    image: "/home/new-arrivals-4.png",
+    image: "/home/Banner.png",
   },
   {
     name: "Emerald Tailored Suit",
     price: "₹5,990",
-    image: "/home/new-arrivals-5.png",
+    image: "/home/Women.png",
   },
 ] as const;
 
@@ -97,22 +97,22 @@ export const signaturePieces = [
   {
     name: "Women's Ivory Power Suit",
     price: "₹8,990",
-    image: "/home/signature-1.png",
+    image: "/home/Women.png",
   },
   {
     name: "Men's Burgundy Blazer",
     price: "₹7,490",
-    image: "/home/signature-2.png",
+    image: "/home/Men.png",
   },
   {
     name: "Midnight Navy Dress",
     price: "₹6,990",
-    image: "/home/signature-3.png",
+    image: "/home/Explore.png",
   },
   {
     name: "Men's Charcoal Overshirt",
     price: "₹5,990",
-    image: "/home/signature-4.png",
+    image: "/home/Banner.png",
   },
 ] as const;
 
@@ -120,17 +120,17 @@ export const occasions = [
   {
     title: "Work",
     description: "Tailored essentials for modern professionals.",
-    image: "/home/occasion-work.png",
+    image: "/home/Women.png",
   },
   {
     title: "Weekend",
     description: "Relaxed pieces with timeless appeal.",
-    image: "/home/occasion-weekend.png",
+    image: "/home/Men.png",
   },
   {
     title: "Travel",
     description: "Designed for movement and versatility.",
-    image: "/home/occasion-travel.png",
+    image: "/home/Explore.png",
   },
 ] as const;
 
@@ -139,7 +139,7 @@ export const footerLinks = {
     { label: "Home", href: "/" },
     { label: "About", href: "/about" },
     { label: "Shop", href: "/shop" },
-    { label: "Contact", href: "#contact" },
+    { label: "Contact", href: "/contact" },
   ],
   shop: [
     { label: "Men", href: "#men" },
@@ -162,7 +162,7 @@ export const images = {
   logo: "/home/logo.png",
   hero: "/home/Banner.png",
   explore: "/home/Explore.png",
-  philosophyFabric: "/home/philosophy-fabric.png",
+  philosophyFabric: "/home/Men.png",
 } as const;
 
 export const brandTagline =

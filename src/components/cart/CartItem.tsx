@@ -1,3 +1,5 @@
+"use client";
+
 import { SafeImage } from "@/components/ui/SafeImage";
 import type { CartItem as CartItemType } from "@/data/cartContent";
 import { QuantitySelector } from "@/components/cart/QuantitySelector";
@@ -5,9 +7,19 @@ import styles from "./CartItem.module.css";
 
 type CartItemProps = {
   item: CartItemType;
+  onRemove?: (id: string) => void;
 };
 
-export function CartItem({ item }: CartItemProps) {
+export function CartItem({ item, onRemove }: CartItemProps) {
+  const handleShare = async () => {
+    if (navigator.share) {
+      await navigator.share({ title: item.name, text: item.description }).catch(() => {});
+    } else {
+      await navigator.clipboard.writeText(window.location.href).catch(() => {});
+      alert("Link copied to clipboard!");
+    }
+  };
+
   return (
     <article className={styles.item}>
       <div className={styles.imageWrap}>
@@ -24,10 +36,20 @@ export function CartItem({ item }: CartItemProps) {
         <div className={styles.header}>
           <h3 className={styles.name}>{item.name}</h3>
           <div className={styles.iconActions}>
-            <button type="button" className={styles.iconBtn} aria-label="Remove from cart">
+            <button
+              type="button"
+              className={styles.iconBtn}
+              aria-label="Remove from cart"
+              onClick={() => onRemove?.(item.id)}
+            >
               <DeleteIcon />
             </button>
-            <button type="button" className={styles.iconBtn} aria-label="Share product">
+            <button
+              type="button"
+              className={styles.iconBtn}
+              aria-label="Share product"
+              onClick={handleShare}
+            >
               <ShareIcon />
             </button>
           </div>

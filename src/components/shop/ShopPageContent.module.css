@@ -17,6 +17,7 @@
   line-height: 1.2;
   text-align: center;
   color: var(--burgundy);
+  max-width: 420px;
 }
 
 .toolbar {

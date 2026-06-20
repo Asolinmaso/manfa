@@ -35,10 +35,10 @@ export const env = {
     return (process.env.ADMIN_EMAIL ?? "").toLowerCase();
   },
   get googleClientId() {
-    return requireEnv("GOOGLE_CLIENT_ID");
+    return requireEnv("AUTH_GOOGLE_ID");
   },
   get googleClientSecret() {
-    return requireEnv("GOOGLE_CLIENT_SECRET");
+    return requireEnv("AUTH_GOOGLE_SECRET");
   },
   get googleRedirectUri() {
     return `${env.appUrl}/api/auth/google/callback`;

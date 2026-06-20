@@ -33,11 +33,11 @@ export function PhilosophySection() {
 
 function ArrowIcon() {
   return (
-    <svg width="12" height="16" viewBox="0 0 12 16" fill="none" aria-hidden>
+    <svg width="20" height="14" viewBox="0 0 20 14" fill="none" aria-hidden>
       <path
-        d="M2 2L10 8L2 14"
+        d="M1 7H19M13 1L19 7L13 13"
         stroke="currentColor"
-        strokeWidth="2"
+        strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       />

@@ -7,7 +7,7 @@ export const mainNav: NavLink[] = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Shop", href: "/shop" },
-  { label: "Contact", href: "#contact" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export function isInternalHref(href: string) {

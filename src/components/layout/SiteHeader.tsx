@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import { mainNav, isInternalHref } from "@/data/navigation";
 import { images } from "@/data/homeContent";
 import { cartCount as defaultCartCount } from "@/data/cartContent";
@@ -23,8 +24,11 @@ export function SiteHeader({
   const [menuOpen, setMenuOpen] = useState(false);
   const [logoError, setLogoError] = useState(false);
   const { user, loading } = useAuth();
+  const pathname = usePathname();
   const isSolid = variant === "solid";
   const isAuthenticated = Boolean(user?.emailVerified);
+  const isWishlistPage = pathname === "/wishlist";
+  const isCartPage = pathname === "/cart";
 
   return (
     <header
@@ -90,22 +94,19 @@ export function SiteHeader({
             />
           </label>
 
-          {isSolid || isAuthenticated ? (
+          {isAuthenticated ? (
             <div className={styles.iconActions}>
               <IconButton label="Wishlist" href="/wishlist">
-                <HeartIcon />
+                <HeartIcon filled={isWishlistPage} />
               </IconButton>
               <IconButton
                 label="Cart"
                 href="/cart"
                 badge={cartCount > 0 ? String(cartCount).padStart(2, "0") : undefined}
               >
-                <CartIcon />
+                <CartIcon filled={isCartPage} />
               </IconButton>
-              <IconButton
-                label={isAuthenticated ? "Profile" : "Login"}
-                href={isAuthenticated ? "/account" : "/login"}
-              >
+              <IconButton label="Profile" href="/account">
                 <ProfileIcon />
               </IconButton>
             </div>
@@ -160,7 +161,7 @@ function SearchIcon() {
   );
 }
 
-function HeartIcon() {
+function HeartIcon({ filled }: { filled?: boolean }) {
   return (
     <svg width="27" height="24" viewBox="0 0 27 24" fill="none" aria-hidden>
       <path
@@ -168,12 +169,36 @@ function HeartIcon() {
         stroke="currentColor"
         strokeWidth="1.5"
         strokeLinejoin="round"
+        fill={filled ? "currentColor" : "none"}
       />
     </svg>
   );
 }
 
-function CartIcon() {
+function CartIcon({ filled }: { filled?: boolean }) {
+  if (filled) {
+    return (
+      <svg width="28" height="24" viewBox="0 0 28 24" fill="none" aria-hidden>
+        <path
+          d="M7.5 15L5 3H1"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M5 3H25L22 13H8L5 3Z"
+          fill="currentColor"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <circle cx="8" cy="21" r="1.5" fill="currentColor" />
+        <circle cx="20" cy="21" r="1.5" fill="currentColor" />
+      </svg>
+    );
+  }
   return (
     <svg width="28" height="24" viewBox="0 0 28 24" fill="none" aria-hidden>
       <path

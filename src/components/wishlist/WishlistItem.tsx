@@ -1,12 +1,32 @@
+"use client";
+
 import { SafeImage } from "@/components/ui/SafeImage";
 import type { WishlistItem as WishlistItemType } from "@/data/wishlistContent";
 import styles from "./WishlistItem.module.css";
 
 type WishlistItemProps = {
   item: WishlistItemType;
+  onRemove?: (id: string) => void;
 };
 
-export function WishlistItem({ item }: WishlistItemProps) {
+export function WishlistItem({ item, onRemove }: WishlistItemProps) {
+  const handleShare = async () => {
+    if (navigator.share) {
+      await navigator.share({ title: item.name, text: item.description }).catch(() => {});
+    } else {
+      await navigator.clipboard.writeText(window.location.href).catch(() => {});
+      alert("Link copied to clipboard!");
+    }
+  };
+
+  const handleAddToCart = () => {
+    alert(`"${item.name}" added to cart! (Cart integration coming soon)`);
+  };
+
+  const handleBuyNow = () => {
+    alert(`Buying "${item.name}"… (Payment integration coming soon)`);
+  };
+
   return (
     <article className={styles.item}>
       <div className={styles.imageWrap}>
@@ -23,10 +43,20 @@ export function WishlistItem({ item }: WishlistItemProps) {
         <div className={styles.header}>
           <h3 className={styles.name}>{item.name}</h3>
           <div className={styles.iconActions}>
-            <button type="button" className={styles.iconBtn} aria-label="Remove from wishlist">
+            <button
+              type="button"
+              className={styles.iconBtn}
+              aria-label="Remove from wishlist"
+              onClick={() => onRemove?.(item.id)}
+            >
               <DeleteIcon />
             </button>
-            <button type="button" className={styles.iconBtn} aria-label="Share product">
+            <button
+              type="button"
+              className={styles.iconBtn}
+              aria-label="Share product"
+              onClick={handleShare}
+            >
               <ShareIcon />
             </button>
           </div>
@@ -36,10 +66,10 @@ export function WishlistItem({ item }: WishlistItemProps) {
         <p className={styles.price}>Price - {item.priceLabel}</p>
 
         <div className={styles.actions}>
-          <button type="button" className={styles.addToCart}>
+          <button type="button" className={styles.addToCart} onClick={handleAddToCart}>
             Add to Cart
           </button>
-          <button type="button" className={styles.buyNow}>
+          <button type="button" className={styles.buyNow} onClick={handleBuyNow}>
             Buy Now
           </button>
         </div>

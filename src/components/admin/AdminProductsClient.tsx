@@ -248,7 +248,7 @@ export function AdminProductsClient({ adminName }: AdminProductsClientProps) {
               <p className={styles.emptySubtext}>
                 {search || categoryFilter !== "All"
                   ? "Try adjusting your search or filter"
-                  : "Click "Add Product" to get started"}
+                  : 'Click "Add Product" to get started'}
               </p>
             </div>
           ) : (
