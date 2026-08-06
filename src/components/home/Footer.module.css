@@ -216,3 +216,17 @@
     gap: 8px;
   }
 }
+
+/* Touch devices: mirror desktop hover effects on tap */
+@media (hover: none) {
+  .socialLink:active {
+    transform: translateY(-4px) rotate(-4deg) scale(0.94);
+    background: var(--burgundy);
+    color: var(--cream);
+    box-shadow: 0 0 0 2px var(--cream) inset;
+  }
+
+  .link:active::after {
+    transform: scaleX(1);
+  }
+}

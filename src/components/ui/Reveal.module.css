@@ -42,6 +42,36 @@
   filter: none;
 }
 
+@media (max-width: 768px) {
+  .reveal {
+    transition-duration: 0.7s;
+  }
+
+  /* On small screens horizontal slides can cause overflow —
+     soften them into shorter vertical fades. */
+  .up {
+    transform: translateY(20px);
+  }
+
+  .down {
+    transform: translateY(-20px);
+  }
+
+  .left,
+  .right {
+    transform: translateY(20px);
+  }
+
+  .zoom {
+    transform: scale(0.95);
+  }
+
+  .blur {
+    transform: translateY(14px);
+    filter: blur(7px);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal {
     opacity: 1;

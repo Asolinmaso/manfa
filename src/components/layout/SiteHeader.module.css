@@ -301,3 +301,11 @@
     height: auto;
   }
 }
+
+/* Touch devices: mirror desktop hover effects on tap */
+@media (hover: none) {
+  .navLink:active::after,
+  .navActive:active::after {
+    transform: scaleX(1);
+  }
+}

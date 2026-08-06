@@ -171,3 +171,31 @@
     width: 100%;
   }
 }
+
+/* Touch devices: mirror desktop hover effects on tap */
+@media (hover: none) {
+  .card:active {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 26px rgba(71, 22, 26, 0.16);
+    transition-duration: 0.25s;
+  }
+
+  .card:active .image {
+    transform: scale(1.08);
+    transition-duration: 0.3s;
+  }
+
+  .wishlist:active .heartWrap {
+    transform: scale(1.2);
+    transition-duration: 0.25s;
+  }
+
+  .addToCart:active {
+    background: var(--burgundy);
+    color: var(--cream);
+  }
+
+  .buyNow:active {
+    box-shadow: 0 10px 22px rgba(71, 22, 26, 0.3);
+  }
+}

@@ -8,7 +8,7 @@ type PastOrdersSectionProps = {
 
 export function PastOrdersSection({ items }: PastOrdersSectionProps) {
   return (
-    <section className={styles.section} aria-labelledby="past-orders-heading">
+    <section className={`${styles.section} anim-fade-up`} style={{ "--anim-delay": "150ms" } as React.CSSProperties} aria-labelledby="past-orders-heading">
       <h2 id="past-orders-heading" className={styles.heading}>
         Past Orders
       </h2>

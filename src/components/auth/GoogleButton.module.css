@@ -19,3 +19,8 @@
 .button:hover {
   background: #fafafa;
 }
+
+.button:active {
+  background: #f2f2f2;
+  transform: scale(0.985);
+}

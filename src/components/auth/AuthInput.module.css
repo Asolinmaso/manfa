@@ -43,3 +43,8 @@
 .toggle:hover {
   color: var(--text-primary);
 }
+
+.toggle:active {
+  color: var(--text-primary);
+  transform: scale(0.9);
+}

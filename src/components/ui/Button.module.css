@@ -64,3 +64,10 @@
     font-size: 18px;
   }
 }
+
+/* Touch devices: mirror desktop shine sweep on tap */
+@media (hover: none) {
+  .button:active::before {
+    animation: mf-shine 0.5s ease;
+  }
+}

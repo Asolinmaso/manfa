@@ -121,6 +121,11 @@
   opacity: 0.9;
 }
 
+.applyBtn:active {
+  opacity: 0.75;
+  transform: scale(0.97);
+}
+
 .checkoutBtn {
   width: 100%;
   padding: 16px 32px;
@@ -135,6 +140,11 @@
 
 .checkoutBtn:hover {
   opacity: 0.9;
+}
+
+.checkoutBtn:active {
+  opacity: 0.75;
+  transform: scale(0.98);
 }
 
 @media (max-width: 768px) {

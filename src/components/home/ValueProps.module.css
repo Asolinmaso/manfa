@@ -72,3 +72,16 @@
     max-width: none;
   }
 }
+
+/* Touch devices: mirror desktop hover effects on tap */
+@media (hover: none) {
+  .item:active {
+    transform: translateY(-3px);
+    transition-duration: 0.25s;
+  }
+
+  .item:active .icon svg {
+    transform: rotate(-8deg) scale(1.08);
+    transition-duration: 0.3s;
+  }
+}
