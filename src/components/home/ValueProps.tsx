@@ -1,4 +1,5 @@
 import { valueProps } from "@/data/homeContent";
+import { Reveal } from "@/components/ui/Reveal";
 import { SectionContainer } from "@/components/ui/SectionContainer";
 import styles from "./ValueProps.module.css";
 
@@ -13,13 +14,17 @@ export function ValueProps() {
     <SectionContainer className={styles.section}>
       <div className={styles.grid}>
         {valueProps.map((item, index) => (
-          <article key={item.title} className={styles.item}>
-            <div className={styles.icon}>{icons[index]}</div>
-            <div className={styles.text}>
-              <h3 className={styles.title}>{item.title}</h3>
-              <p className={styles.description}>{item.description}</p>
-            </div>
-          </article>
+          <Reveal key={item.title} variant="up" delay={index * 120} className={styles.itemReveal}>
+            <article className={styles.item}>
+              <div className={`${styles.icon} anim-float`} style={{ animationDelay: `${index * 700}ms` }}>
+                {icons[index]}
+              </div>
+              <div className={styles.text}>
+                <h3 className={styles.title}>{item.title}</h3>
+                <p className={styles.description}>{item.description}</p>
+              </div>
+            </article>
+          </Reveal>
         ))}
       </div>
     </SectionContainer>

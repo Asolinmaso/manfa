@@ -7,17 +7,45 @@
   grid-template-columns: 1fr 1fr;
 }
 
+.cardReveal {
+  display: flex;
+}
+
 .card {
   position: relative;
   min-height: 373px;
   overflow: hidden;
   display: flex;
   align-items: center;
+  width: 100%;
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(247, 241, 236, 0) 55%,
+    rgba(247, 241, 236, 0.5) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+}
+
+.card:hover::after {
+  opacity: 1;
 }
 
 .image {
   object-fit: cover;
   object-position: center;
+  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.card:hover .image {
+  transform: scale(1.08);
 }
 
 .content {
@@ -25,6 +53,11 @@
   z-index: 1;
   padding: 40px var(--section-padding);
   max-width: 400px;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.card:hover .content {
+  transform: translateY(-6px);
 }
 
 .title {
@@ -52,12 +85,20 @@
   font-weight: 500;
   line-height: 24px;
   color: var(--text-primary);
-  transition: opacity 0.2s;
   white-space: nowrap;
 }
 
+.ctaArrow {
+  display: inline-flex;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
 .cta:hover {
-  opacity: 0.7;
+  opacity: 1;
+}
+
+.cta:hover .ctaArrow {
+  transform: translateX(8px);
 }
 
 @media (max-width: 768px) {

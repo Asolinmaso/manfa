@@ -11,9 +11,11 @@ type ShopProductCardProps = {
 
 export function ShopProductCard({ product }: ShopProductCardProps) {
   const [wishlisted, setWishlisted] = useState(false);
+  const [popping, setPopping] = useState(false);
 
   const handleWishlist = () => {
     setWishlisted((prev) => !prev);
+    setPopping(true);
   };
 
   const handleAddToCart = () => {
@@ -39,8 +41,11 @@ export function ShopProductCard({ product }: ShopProductCardProps) {
           className={styles.wishlist}
           aria-label={wishlisted ? "Remove from wishlist" : "Add to wishlist"}
           onClick={handleWishlist}
+          onAnimationEnd={() => setPopping(false)}
         >
-          <HeartIcon filled={wishlisted} />
+          <span className={`${styles.heartWrap} ${popping ? styles.heartPop : ""}`}>
+            <HeartIcon filled={wishlisted} />
+          </span>
         </button>
       </div>
 

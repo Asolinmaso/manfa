@@ -1,4 +1,5 @@
 import { contactInfoItems } from "@/data/contactContent";
+import { Reveal } from "@/components/ui/Reveal";
 import styles from "./ContactInfo.module.css";
 
 function ContactIcon({ type }: { type: (typeof contactInfoItems)[number]["icon"] }) {
@@ -47,14 +48,20 @@ export function ContactInfo() {
       <h2 className={styles.title}>Contact Us</h2>
       <div className={styles.card}>
         <ul className={styles.list}>
-          {contactInfoItems.map((item) => (
-            <li key={item.id} className={styles.row}>
+          {contactInfoItems.map((item, index) => (
+            <Reveal
+              as="li"
+              key={item.id}
+              variant="left"
+              delay={index * 110}
+              className={styles.rowReveal}
+            >
               <ContactIcon type={item.icon} />
               <div className={styles.details}>
                 <span className={styles.label}>{item.label}</span>
                 <span className={styles.value}>{item.value}</span>
               </div>
-            </li>
+            </Reveal>
           ))}
         </ul>
       </div>

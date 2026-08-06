@@ -1,4 +1,5 @@
 .button {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -7,11 +8,44 @@
   font-size: 20px;
   font-weight: 500;
   line-height: 24px;
-  transition: opacity 0.2s ease;
+  overflow: hidden;
+  transition:
+    transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.2s ease;
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(
+    100deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.45) 50%,
+    transparent 100%
+  );
+  transform: translateX(-150%) skewX(-20deg);
+  pointer-events: none;
 }
 
 .button:hover {
-  opacity: 0.9;
+  opacity: 1;
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px rgba(71, 22, 26, 0.22);
+}
+
+.button:hover::before {
+  animation: mf-shine 0.9s ease;
+}
+
+.button:active {
+  transform: translateY(-1px) scale(0.97);
+  box-shadow: 0 6px 14px rgba(71, 22, 26, 0.18);
+  transition-duration: 0.1s;
 }
 
 .cream {

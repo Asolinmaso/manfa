@@ -8,9 +8,14 @@ import styles from "./WishlistSection.module.css";
 
 export function WishlistSection() {
   const [items, setItems] = useState<WishlistItemType[]>(initialWishlistItems);
+  const [removingId, setRemovingId] = useState<string | null>(null);
 
   const handleRemove = (id: string) => {
-    setItems((prev) => prev.filter((item) => item.id !== id));
+    setRemovingId(id);
+    window.setTimeout(() => {
+      setItems((prev) => prev.filter((item) => item.id !== id));
+      setRemovingId(null);
+    }, 400);
   };
 
   const count = items.length;
@@ -18,15 +23,19 @@ export function WishlistSection() {
 
   return (
     <section className={styles.section}>
-      <h1 className={styles.title}>Wishlist ({paddedCount})</h1>
-      <hr className={styles.divider} />
+      <h1 className={`${styles.title} anim-fade-up`}>Wishlist ({paddedCount})</h1>
+      <hr className={`${styles.divider} anim-fade-in`} style={{ "--anim-delay": "150ms" } as React.CSSProperties} />
 
       {items.length === 0 ? (
         <p className={styles.empty}>Your wishlist is empty.</p>
       ) : (
         <ul className={styles.list}>
           {items.map((item, index) => (
-            <li key={item.id} className={styles.listItem}>
+            <li
+              key={item.id}
+              className={`${styles.listItem} ${removingId === item.id ? styles.removing : ""}`}
+              style={{ "--anim-delay": `${200 + index * 100}ms` } as React.CSSProperties}
+            >
               <WishlistItem item={item} onRemove={handleRemove} />
               {index < items.length - 1 && <hr className={styles.itemDivider} />}
             </li>

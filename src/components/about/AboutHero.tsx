@@ -11,11 +11,13 @@ export function AboutHero() {
         fill
         priority
         sizes="100vw"
-        className={styles.image}
+        className={`${styles.image} anim-kenburns-slow`}
       />
       <div className={styles.content}>
-        <h1 className={styles.title}>{aboutHero.title}</h1>
-        <p className={styles.description}>{aboutHero.description}</p>
+        <h1 className={`${styles.title} anim-fade-up`}>{aboutHero.title}</h1>
+        <p className={`${styles.description} anim-fade-up`} style={{ "--anim-delay": "180ms" } as React.CSSProperties}>
+          {aboutHero.description}
+        </p>
       </div>
     </section>
   );

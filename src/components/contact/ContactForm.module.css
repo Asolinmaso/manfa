@@ -1,7 +1,12 @@
+.panelReveal {
+  display: flex;
+}
+
 .panel {
   display: flex;
   flex-direction: column;
   gap: 24px;
+  width: 100%;
 }
 
 .title {
@@ -60,6 +65,7 @@
   color: var(--text-primary);
   padding: 12px 0;
   outline: none;
+  transition: border-color 0.35s ease;
 }
 
 .phoneField .input {
@@ -70,6 +76,11 @@
 .input::placeholder {
   color: var(--text-muted);
   opacity: 0.7;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.input:focus::placeholder {
+  opacity: 0.35;
 }
 
 .input:focus {

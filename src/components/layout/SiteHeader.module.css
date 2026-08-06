@@ -4,6 +4,7 @@
   right: 0;
   z-index: 100;
   height: 80px;
+  animation: mf-slide-down 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .headerOverlay {
@@ -60,11 +61,30 @@
 
 .navLink,
 .navActive {
+  position: relative;
   font-family: var(--font-sans), sans-serif;
   font-size: 20px;
   line-height: 24px;
   color: var(--cream);
   transition: opacity 0.2s;
+}
+
+.navLink::after,
+.navActive::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 2px;
+  background: var(--cream);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.navActive::after {
+  transform: scaleX(1);
 }
 
 .navLink {
@@ -76,7 +96,11 @@
 }
 
 .navLink:hover {
-  opacity: 0.8;
+  opacity: 1;
+}
+
+.navLink:hover::after {
+  transform: scaleX(1);
 }
 
 .actions {
@@ -138,7 +162,9 @@
   align-items: center;
   justify-content: center;
   color: var(--cream);
-  transition: opacity 0.2s;
+  transition:
+    transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+    opacity 0.2s;
 }
 
 .cartBadge {
@@ -158,10 +184,16 @@
   font-size: 12px;
   font-weight: 600;
   line-height: 1;
+  animation: mf-badge-pop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.9s both;
 }
 
 .iconBtn:hover {
-  opacity: 0.8;
+  opacity: 1;
+  transform: translateY(-3px) scale(1.08);
+}
+
+.iconBtn:active {
+  transform: translateY(-1px) scale(0.95);
 }
 
 .menuToggle {
@@ -179,7 +211,7 @@
   width: 100%;
   height: 2px;
   background: var(--cream);
-  transition: transform 0.2s, opacity 0.2s;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.2s;
 }
 
 @media (max-width: 1024px) {
@@ -193,12 +225,51 @@
     padding: 24px var(--section-padding);
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.2s, visibility 0.2s;
+    transition:
+      opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+      visibility 0.35s,
+      transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    transform: translateY(-12px);
   }
 
   .navOpen {
     opacity: 1;
     visibility: visible;
+    transform: translateY(0);
+  }
+
+  .navOpen .navLink,
+  .navOpen .navActive {
+    animation: mf-fade-up 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .navOpen .navList li:nth-child(1) a {
+    animation-delay: 60ms;
+  }
+  .navOpen .navList li:nth-child(2) a {
+    animation-delay: 110ms;
+  }
+  .navOpen .navList li:nth-child(3) a {
+    animation-delay: 160ms;
+  }
+  .navOpen .navList li:nth-child(4) a {
+    animation-delay: 210ms;
+  }
+  .navOpen .navList li:nth-child(5) a {
+    animation-delay: 260ms;
+  }
+
+  .menuOpen span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .menuOpen span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+
+  .menuOpen span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
   }
 
   .navList {

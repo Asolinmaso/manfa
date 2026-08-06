@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState, useEffect } from "react";
+import { Reveal } from "@/components/ui/Reveal";
 import { SectionContainer } from "@/components/ui/SectionContainer";
 import { ShopSidebar } from "./ShopSidebar";
 import { ShopProductCard } from "./ShopProductCard";
@@ -98,9 +99,9 @@ export function ShopPageContent() {
   return (
     <SectionContainer className={styles.page}>
       <header className={styles.pageHeader}>
-        <h1 className={styles.title}>Explore Our Collection</h1>
+        <h1 className={`${styles.title} anim-fade-up`}>Explore Our Collection</h1>
 
-        <div className={styles.toolbar}>
+        <div className={`${styles.toolbar} anim-fade-up`} style={{ "--anim-delay": "120ms" } as React.CSSProperties}>
           <hr className={styles.toolbarRule} />
           <div className={styles.toolbarRow}>
             <p className={styles.productCount}>
@@ -174,8 +175,15 @@ export function ShopPageContent() {
         <div className={styles.gridSection}>
           {visibleProducts.length > 0 ? (
             <div className={styles.grid}>
-              {visibleProducts.map((product) => (
-                <ShopProductCard key={product.id} product={product} />
+              {visibleProducts.map((product, index) => (
+                <Reveal
+                  key={product.id}
+                  variant="up"
+                  delay={(index % 4) * 90}
+                  className={styles.cardSlot}
+                >
+                  <ShopProductCard product={product} />
+                </Reveal>
               ))}
             </div>
           ) : (

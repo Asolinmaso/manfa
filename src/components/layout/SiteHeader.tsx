@@ -118,7 +118,7 @@ export function SiteHeader({
 
           <button
             type="button"
-            className={styles.menuToggle}
+            className={`${styles.menuToggle} ${menuOpen ? styles.menuOpen : ""}`}
             aria-label={menuOpen ? "Close menu" : "Open menu"}
             aria-expanded={menuOpen}
             onClick={() => setMenuOpen(!menuOpen)}

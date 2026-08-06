@@ -11,7 +11,7 @@ export function AuthBranding() {
         fill
         priority
         sizes="(max-width: 900px) 100vw, 464px"
-        className={styles.background}
+        className={`${styles.background} anim-kenburns-slow`}
       />
       <div className={styles.overlay} />
       <div className={styles.content}>
@@ -21,9 +21,12 @@ export function AuthBranding() {
           width={199}
           height={73}
           priority
-          className={styles.logo}
+          className={`${styles.logo} anim-fade-down`}
+          style={{ "--anim-delay": "300ms" } as React.CSSProperties}
         />
-        <p className={styles.tagline}>{authTagline}</p>
+        <p className={`${styles.tagline} anim-fade-up`} style={{ "--anim-delay": "500ms" } as React.CSSProperties}>
+          {authTagline}
+        </p>
       </div>
     </aside>
   );

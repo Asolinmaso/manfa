@@ -10,6 +10,7 @@
 .image {
   object-fit: cover;
   object-position: center;
+  will-change: transform;
 }
 
 .overlay {
@@ -22,6 +23,8 @@
     transparent 100%
   );
   pointer-events: none;
+  animation: mf-fade-in 1.4s ease both;
+  animation-delay: 150ms;
 }
 
 .content {
@@ -31,6 +34,48 @@
   width: 100%;
   margin: 0 auto;
   padding: 120px var(--section-padding) 80px;
+}
+
+.ctaWrap {
+  display: flex;
+}
+
+.scrollHint {
+  position: absolute;
+  left: 50%;
+  bottom: 32px;
+  z-index: 1;
+  width: 26px;
+  height: 44px;
+  border: 1.5px solid rgba(247, 241, 236, 0.6);
+  border-radius: 999px;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  animation: mf-fade-in 1.4s ease 1.6s both;
+}
+
+.scrollDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--cream);
+  margin-top: 9px;
+  animation: mf-scroll-dot 2s ease-in-out infinite;
+}
+
+@keyframes mf-scroll-dot {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  70% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(18px);
+  }
 }
 
 .eyebrow {
@@ -67,5 +112,9 @@
   .content {
     padding-top: 100px;
     padding-bottom: 60px;
+  }
+
+  .scrollHint {
+    display: none;
   }
 }
