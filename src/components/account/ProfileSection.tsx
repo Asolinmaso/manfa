@@ -15,10 +15,10 @@ export function ProfileSection({ user }: ProfileSectionProps) {
 
   return (
     <section className={styles.section} aria-labelledby="profile-heading">
-      <h2 id="profile-heading" className={styles.heading}>
+      <h2 id="profile-heading" className={`${styles.heading} anim-fade-up`}>
         My Profile
       </h2>
-      <div className={styles.card}>
+      <div className={`${styles.card} anim-fade-up`} style={{ "--anim-delay": "120ms" } as React.CSSProperties}>
         <button type="button" className={styles.editBtn} aria-label="Edit profile">
           <EditIcon />
         </button>

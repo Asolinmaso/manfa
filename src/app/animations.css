@@ -1,0 +1,350 @@
+/* ────────────────────────────────────────────────────────────
+   Manfa Global Animation System
+   Keyframes + utility classes. Imported once in layout.tsx.
+   ──────────────────────────────────────────────────────────── */
+
+/* ── Entrance keyframes ─────────────────────────────────── */
+
+@keyframes mf-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes mf-fade-down {
+  from {
+    opacity: 0;
+    transform: translateY(-28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes mf-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes mf-zoom-in {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes mf-blur-in {
+  from {
+    opacity: 0;
+    filter: blur(10px);
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+/* ── Ambient / decorative keyframes ─────────────────────── */
+
+@keyframes mf-kenburns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.14);
+  }
+}
+
+@keyframes mf-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes mf-float-soft {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-6px) rotate(-2deg);
+  }
+}
+
+@keyframes mf-shimmer {
+  from {
+    background-position: -200% center;
+  }
+  to {
+    background-position: 200% center;
+  }
+}
+
+@keyframes mf-shine {
+  from {
+    transform: translateX(-150%) skewX(-20deg);
+  }
+  to {
+    transform: translateX(220%) skewX(-20deg);
+  }
+}
+
+@keyframes mf-heart-pop {
+  0% {
+    transform: scale(0.4);
+  }
+  55% {
+    transform: scale(1.35);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes mf-badge-pop {
+  0% {
+    transform: scale(0.2);
+  }
+  60% {
+    transform: scale(1.25);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes mf-pulse-soft {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.55;
+    transform: scale(0.92);
+  }
+}
+
+@keyframes mf-wiggle {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-6deg);
+  }
+  75% {
+    transform: rotate(6deg);
+  }
+}
+
+@keyframes mf-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes mf-spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes mf-underline-grow {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes mf-slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Entrance utility classes (pure CSS, used on load) ──── */
+
+.anim-fade-up {
+  animation: mf-fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: var(--anim-delay, 0ms);
+}
+
+.anim-fade-down {
+  animation: mf-fade-down 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: var(--anim-delay, 0ms);
+}
+
+.anim-fade-in {
+  animation: mf-fade-in 1s ease both;
+  animation-delay: var(--anim-delay, 0ms);
+}
+
+.anim-zoom-in {
+  animation: mf-zoom-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: var(--anim-delay, 0ms);
+}
+
+.anim-blur-in {
+  animation: mf-blur-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: var(--anim-delay, 0ms);
+}
+
+/* ── Ambient utility classes ────────────────────────────── */
+
+.anim-kenburns {
+  animation: mf-kenburns 18s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+.anim-kenburns-slow {
+  animation: mf-kenburns 26s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+.anim-float {
+  animation: mf-float 4s ease-in-out infinite;
+}
+
+.anim-float-soft {
+  animation: mf-float-soft 5s ease-in-out infinite;
+}
+
+.anim-pulse-soft {
+  animation: mf-pulse-soft 2.4s ease-in-out infinite;
+}
+
+.anim-wiggle {
+  animation: mf-wiggle 0.5s ease-in-out;
+}
+
+.anim-spin-slow {
+  animation: mf-spin-slow 14s linear infinite;
+}
+
+/* Shimmering text/gradient sweep — pair with a background-clip gradient */
+.anim-shimmer {
+  background-size: 200% auto;
+  animation: mf-shimmer 3.5s linear infinite;
+}
+
+/* Horizontal marquee track: duplicate content and translate -50% */
+.anim-marquee {
+  animation: mf-marquee 22s linear infinite;
+}
+
+.anim-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* ── Mobile: tighten offsets for a snappier feel ────────── */
+
+@media (max-width: 768px) {
+  .anim-fade-up {
+    animation-name: mf-fade-up-mobile;
+    animation-duration: 0.7s;
+  }
+
+  .anim-fade-down {
+    animation-name: mf-fade-down-mobile;
+    animation-duration: 0.7s;
+  }
+
+  .anim-blur-in {
+    animation-name: mf-blur-in-mobile;
+    animation-duration: 0.65s;
+  }
+
+  .anim-zoom-in {
+    animation-duration: 0.7s;
+  }
+
+  .anim-float {
+    animation-duration: 3.4s;
+  }
+
+  .anim-float-soft {
+    animation-duration: 4.2s;
+  }
+}
+
+@keyframes mf-fade-up-mobile {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes mf-fade-down-mobile {
+  from {
+    opacity: 0;
+    transform: translateY(-18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes mf-blur-in-mobile {
+  from {
+    opacity: 0;
+    filter: blur(8px);
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+/* ── Reduced motion: respect user preferences ───────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

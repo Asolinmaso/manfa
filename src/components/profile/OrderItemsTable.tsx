@@ -29,10 +29,11 @@ export function OrderItemsTable({ items, variant }: OrderItemsTableProps) {
         )}
       </div>
 
-      {items.map((item) => (
+      {items.map((item, index) => (
         <div
           key={item.id}
-          className={`${styles.bodyRow} ${showActions ? styles.bodyPast : ""}`}
+          className={`${styles.bodyRow} ${showActions ? styles.bodyPast : ""} anim-fade-up`}
+          style={{ "--anim-delay": `${250 + index * 90}ms` } as React.CSSProperties}
           role="row"
         >
           <div className={styles.productCol} role="cell">

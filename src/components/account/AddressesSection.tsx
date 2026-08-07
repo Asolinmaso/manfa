@@ -9,7 +9,7 @@ export function AddressesSection({ addresses }: AddressesSectionProps) {
   return (
     <section className={styles.section} aria-labelledby="addresses-heading">
       <div className={styles.rule} />
-      <div className={styles.header}>
+      <div className={`${styles.header} anim-fade-up`} style={{ "--anim-delay": "100ms" } as React.CSSProperties}>
         <h2 id="addresses-heading" className={styles.heading}>
           Addresses
         </h2>
@@ -18,8 +18,12 @@ export function AddressesSection({ addresses }: AddressesSectionProps) {
         </button>
       </div>
       <ul className={styles.list}>
-        {addresses.map((address) => (
-          <li key={address.id}>
+        {addresses.map((address, index) => (
+          <li
+            key={address.id}
+            className="anim-fade-up"
+            style={{ "--anim-delay": `${200 + index * 120}ms` } as React.CSSProperties}
+          >
             <AddressCard address={address} />
           </li>
         ))}

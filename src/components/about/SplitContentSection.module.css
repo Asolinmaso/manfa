@@ -9,11 +9,15 @@
   align-items: center;
 }
 
-.gridReversed .imageBlock {
+.blockReveal {
+  min-width: 0;
+}
+
+.gridReversed .blockReveal:first-child {
   order: 2;
 }
 
-.gridReversed .textBlock {
+.gridReversed .blockReveal:last-child {
   order: 1;
 }
 
@@ -28,6 +32,11 @@
 
 .image {
   object-fit: cover;
+  transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.imageWrap:hover .image {
+  transform: scale(1.07);
 }
 
 .title {
@@ -61,25 +70,33 @@
     gap: 32px;
   }
 
-  .gridReversed .imageBlock,
-  .gridReversed .textBlock {
+  .gridReversed .blockReveal:first-child,
+  .gridReversed .blockReveal:last-child {
     order: unset;
   }
 
-  .grid:not(.gridReversed) .imageBlock {
+  .grid .blockReveal:first-child {
     order: -1;
   }
 
-  .gridReversed .textBlock {
-    order: -1;
-  }
-
-  .gridReversed .imageBlock {
+  .gridReversed .blockReveal:first-child {
     order: 0;
+  }
+
+  .gridReversed .blockReveal:last-child {
+    order: -1;
   }
 
   .imageWrap {
     max-height: none;
     aspect-ratio: 4 / 3;
+  }
+}
+
+/* Touch devices: mirror desktop hover effects on tap */
+@media (hover: none) {
+  .imageWrap:active .image {
+    transform: scale(1.07);
+    transition-duration: 0.4s;
   }
 }

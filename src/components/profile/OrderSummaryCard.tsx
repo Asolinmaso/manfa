@@ -16,10 +16,14 @@ export function OrderSummaryCard({ order }: OrderSummaryCardProps) {
   ];
 
   return (
-    <section className={styles.card} aria-labelledby="active-order-heading">
+    <section className={`${styles.card} anim-fade-up`} aria-labelledby="active-order-heading">
       <div className={styles.summary}>
-        {summaryFields.map((field) => (
-          <div key={field.label} className={styles.field}>
+        {summaryFields.map((field, index) => (
+          <div
+            key={field.label}
+            className={`${styles.field} anim-fade-up`}
+            style={{ "--anim-delay": `${150 + index * 80}ms` } as React.CSSProperties}
+          >
             <span className={styles.label}>{field.label}</span>
             <span className={styles.value}>{field.value}</span>
           </div>
@@ -28,7 +32,7 @@ export function OrderSummaryCard({ order }: OrderSummaryCardProps) {
 
       <div className={styles.divider} />
 
-      <div className={styles.itemsSection}>
+      <div className={`${styles.itemsSection} anim-fade-up`} style={{ "--anim-delay": "500ms" } as React.CSSProperties}>
         <h2 id="active-order-heading" className={styles.heading}>
           Items From Order
         </h2>

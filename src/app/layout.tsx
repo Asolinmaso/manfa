@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { DM_Serif_Display, Inter, Poppins } from "next/font/google";
 import { AuthProvider } from "@/components/auth/AuthProvider";
 import "./globals.css";
+import "./animations.css";
 
 const dmSerif = DM_Serif_Display({
   variable: "--font-serif",

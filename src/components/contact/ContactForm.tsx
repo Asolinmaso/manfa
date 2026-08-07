@@ -2,6 +2,7 @@
 
 import { FormEvent } from "react";
 import { Button } from "@/components/ui/Button";
+import { Reveal } from "@/components/ui/Reveal";
 import { contactFormLabels, phoneCountryCode } from "@/data/contactContent";
 import styles from "./ContactForm.module.css";
 
@@ -11,9 +12,10 @@ export function ContactForm() {
   }
 
   return (
-    <div className={styles.panel}>
-      <h2 className={styles.title}>Send Message</h2>
-      <form className={styles.form} onSubmit={handleSubmit} noValidate>
+    <Reveal variant="right" className={styles.panelReveal}>
+      <div className={styles.panel}>
+        <h2 className={styles.title}>Send Message</h2>
+        <form className={styles.form} onSubmit={handleSubmit} noValidate>
         <div className={styles.row}>
           <div className={styles.field}>
             <label htmlFor="contact-name" className={styles.srOnly}>
@@ -102,6 +104,7 @@ export function ContactForm() {
           </Button>
         </div>
       </form>
-    </div>
+      </div>
+    </Reveal>
   );
 }

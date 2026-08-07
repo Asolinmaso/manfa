@@ -9,12 +9,17 @@
   align-items: start;
 }
 
+.columnReveal {
+  min-width: 0;
+}
+
 .column {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 24px;
   text-align: center;
+  height: 100%;
 }
 
 .title {

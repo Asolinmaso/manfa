@@ -9,7 +9,7 @@ type ProfileTabsProps = {
 
 export function ProfileTabs({ activeTab }: ProfileTabsProps) {
   return (
-    <nav className={styles.tabs} aria-label="Profile sections">
+    <nav className={`${styles.tabs} anim-fade-up`} aria-label="Profile sections">
       <div className={styles.rule} />
       <ul className={styles.list}>
         <li>

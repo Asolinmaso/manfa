@@ -14,6 +14,11 @@
   overflow-y: auto;
 }
 
+.formInner {
+  width: 100%;
+  max-width: 480px;
+}
+
 @media (max-width: 900px) {
   .page {
     flex-direction: column;

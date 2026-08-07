@@ -12,18 +12,27 @@ export function Hero() {
         fill
         priority
         sizes="100vw"
-        className={styles.image}
+        className={`${styles.image} anim-kenburns-slow`}
       />
       <div className={styles.overlay} />
       <div className={styles.content}>
-        <p className={styles.eyebrow}>Where Style Meets Purpose</p>
-        <h1 className={styles.title}>Wear The Change</h1>
-        <p className={styles.description}>
+        <p className={`${styles.eyebrow} anim-fade-up`} style={{ "--anim-delay": "300ms" } as React.CSSProperties}>
+          Where Style Meets Purpose
+        </p>
+        <h1 className={`${styles.title} anim-fade-up`} style={{ "--anim-delay": "450ms" } as React.CSSProperties}>
+          Wear The Change
+        </h1>
+        <p className={`${styles.description} anim-fade-up`} style={{ "--anim-delay": "600ms" } as React.CSSProperties}>
           Thoughtfully crafted essentials designed for changing every lifestyle
         </p>
-        <Button href="/shop" variant="cream">
-          Explore Collection
-        </Button>
+        <div className={styles.ctaWrap} style={{ "--anim-delay": "750ms" } as React.CSSProperties}>
+          <Button href="/shop" variant="cream" className="anim-fade-up">
+            Explore Collection
+          </Button>
+        </div>
+      </div>
+      <div className={styles.scrollHint} aria-hidden>
+        <span className={styles.scrollDot} />
       </div>
     </section>
   );

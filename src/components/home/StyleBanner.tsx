@@ -1,5 +1,6 @@
 import { images } from "@/data/homeContent";
 import { Button } from "@/components/ui/Button";
+import { Reveal } from "@/components/ui/Reveal";
 import { SafeImage } from "@/components/ui/SafeImage";
 import styles from "./StyleBanner.module.css";
 
@@ -11,19 +12,21 @@ export function StyleBanner() {
         alt="Style that stays"
         fill
         sizes="100vw"
-        className={styles.image}
+        className={`${styles.image} anim-kenburns-slow`}
       />
       <div className={styles.overlay} />
-      <div className={styles.content}>
-        <h2 className={styles.title}>Style That Stays.</h2>
-        <p className={styles.description}>
-          Thoughtfully designed essentials that remain relevant long after trends
-          have passed.
-        </p>
-        <Button href="/shop" variant="cream">
-          Explore Collection
-        </Button>
-      </div>
+      <Reveal variant="up" delay={100} className={styles.contentReveal}>
+        <div className={styles.content}>
+          <h2 className={styles.title}>Style That Stays.</h2>
+          <p className={styles.description}>
+            Thoughtfully designed essentials that remain relevant long after trends
+            have passed.
+          </p>
+          <Button href="/shop" variant="cream">
+            Explore Collection
+          </Button>
+        </div>
+      </Reveal>
     </section>
   );
 }

@@ -10,6 +10,13 @@
 .image {
   object-fit: cover;
   object-position: center;
+  will-change: transform;
+}
+
+.contentReveal {
+  position: relative;
+  z-index: 1;
+  width: 100%;
 }
 
 .overlay {

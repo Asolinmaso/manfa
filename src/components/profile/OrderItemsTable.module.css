@@ -118,6 +118,11 @@
   opacity: 0.85;
 }
 
+.actionBtn:active {
+  opacity: 0.65;
+  transform: scale(0.96);
+}
+
 @media (max-width: 768px) {
   .headerRow {
     display: none;

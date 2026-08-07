@@ -41,6 +41,13 @@
   color: #000;
 }
 
+/* Touch devices: mirror hover color change on tap */
+@media (hover: none) {
+  .inactive:active {
+    color: #000;
+  }
+}
+
 @media (max-width: 768px) {
   .tabs {
     margin-top: 24px;

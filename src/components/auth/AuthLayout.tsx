@@ -9,7 +9,9 @@ export function AuthLayout({ children }: AuthLayoutProps) {
   return (
     <div className={styles.page}>
       <AuthBranding />
-      <div className={styles.formPanel}>{children}</div>
+      <div className={`${styles.formPanel} anim-fade-up`}>
+        <div className={styles.formInner}>{children}</div>
+      </div>
     </div>
   );
 }

@@ -2,16 +2,21 @@
 
 import { useState } from "react";
 import { offers } from "@/data/homeContent";
+import { Reveal } from "@/components/ui/Reveal";
 import { SectionContainer } from "@/components/ui/SectionContainer";
 import styles from "./OffersSection.module.css";
 
 export function OffersSection() {
   return (
     <SectionContainer className={styles.section}>
-      <h2 className={styles.heading}>Offers for You</h2>
+      <Reveal variant="up">
+        <h2 className={styles.heading}>Offers for You</h2>
+      </Reveal>
       <div className={styles.grid}>
-        {offers.map((offer) => (
-          <OfferCard key={offer.code} offer={offer} />
+        {offers.map((offer, index) => (
+          <Reveal key={offer.code} variant="up" delay={index * 130} className={styles.cardReveal}>
+            <OfferCard offer={offer} />
+          </Reveal>
         ))}
       </div>
     </SectionContainer>

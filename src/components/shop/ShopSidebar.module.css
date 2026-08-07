@@ -158,3 +158,15 @@
     max-width: none;
   }
 }
+
+/* Touch devices: mirror desktop hover effects on tap */
+@media (hover: none) {
+  .categoryItem:active {
+    background: rgba(71, 22, 26, 0.12);
+  }
+
+  .sizeBtn:active {
+    background: var(--burgundy);
+    color: var(--cream);
+  }
+}

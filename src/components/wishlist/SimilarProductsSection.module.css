@@ -18,6 +18,10 @@
   gap: 24px;
 }
 
+.cardSlot {
+  min-width: 0;
+}
+
 @media (max-width: 1024px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);

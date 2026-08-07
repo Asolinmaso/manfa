@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/Button";
+import { Reveal } from "@/components/ui/Reveal";
 import { SafeImage } from "@/components/ui/SafeImage";
 import { SectionContainer } from "@/components/ui/SectionContainer";
 import styles from "./ProductGrid.module.css";
@@ -31,29 +32,46 @@ export function ProductGrid({
 }: ProductGridProps) {
   return (
     <SectionContainer id={id} className={styles.section}>
-      <h2
-        className={`${styles.title} ${titleAlign === "center" ? styles.titleCenter : ""}`}
-      >
-        {title}
-      </h2>
+      <Reveal variant="up">
+        <h2
+          className={`${styles.title} ${titleAlign === "center" ? styles.titleCenter : ""}`}
+        >
+          {title}
+        </h2>
+      </Reveal>
       <div
         className={`${styles.products} ${layout === "grid" ? styles.productsGrid : styles.productsScroll}`}
       >
-        {products.map((product) => (
-          <ProductCard key={`${product.name}-${product.image}`} product={product} layout={layout} />
+        {products.map((product, index) => (
+          <Reveal
+            key={`${product.name}-${product.image}-${index}`}
+            variant="up"
+            delay={layout === "grid" ? (index % 4) * 100 : (index % 4) * 80}
+            className={styles.cardSlot}
+          >
+            <ProductCard product={product} layout={layout} />
+          </Reveal>
         ))}
       </div>
-      <div className={`${styles.ctaWrap} ${titleAlign === "center" ? styles.ctaCenter : ""}`}>
-        <Button href={ctaHref} variant="burgundy">
-          Explore Collection
-        </Button>
-      </div>
+      <Reveal variant="fade" delay={120}>
+        <div className={`${styles.ctaWrap} ${titleAlign === "center" ? styles.ctaCenter : ""}`}>
+          <Button href={ctaHref} variant="burgundy">
+            Explore Collection
+          </Button>
+        </div>
+      </Reveal>
     </SectionContainer>
   );
 }
 
 function ProductCard({ product, layout }: { product: Product; layout: "scroll" | "grid" }) {
   const [wishlisted, setWishlisted] = useState(false);
+  const [popping, setPopping] = useState(false);
+
+  const handleWishlist = () => {
+    setWishlisted((prev) => !prev);
+    setPopping(true);
+  };
 
   return (
     <article className={styles.card}>
@@ -69,9 +87,12 @@ function ProductCard({ product, layout }: { product: Product; layout: "scroll" |
           type="button"
           className={styles.wishlist}
           aria-label={wishlisted ? "Remove from wishlist" : "Add to wishlist"}
-          onClick={() => setWishlisted((prev) => !prev)}
+          onClick={handleWishlist}
+          onAnimationEnd={() => setPopping(false)}
         >
-          <HeartIcon filled={wishlisted} />
+          <span className={`${styles.heartWrap} ${popping ? styles.heartPop : ""}`}>
+            <HeartIcon filled={wishlisted} />
+          </span>
         </button>
       </div>
       <div className={styles.info}>
