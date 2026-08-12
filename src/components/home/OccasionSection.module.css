@@ -41,20 +41,16 @@
 .overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    180deg,
-    transparent 40%,
-    rgba(0, 0, 0, 0.55) 100%
-  );
+  background: linear-gradient(180deg,
+      transparent 40%,
+      rgba(0, 0, 0, 0.55) 100%);
   transition: background 0.5s ease;
 }
 
 .card:hover .overlay {
-  background: linear-gradient(
-    180deg,
-    transparent 20%,
-    rgba(0, 0, 0, 0.7) 100%
-  );
+  background: linear-gradient(180deg,
+      transparent 20%,
+      rgba(0, 0, 0, 0.7) 100%);
 }
 
 .content {
@@ -84,6 +80,7 @@
   font-family: var(--font-sans), sans-serif;
   font-size: 20px;
   line-height: 24px;
+  white-space: pre-line;
 }
 
 @media (max-width: 1024px) {
@@ -108,11 +105,9 @@
   }
 
   .card:active .overlay {
-    background: linear-gradient(
-      180deg,
-      transparent 20%,
-      rgba(0, 0, 0, 0.7) 100%
-    );
+    background: linear-gradient(180deg,
+        transparent 20%,
+        rgba(0, 0, 0, 0.7) 100%);
     transition-duration: 0.3s;
   }
 

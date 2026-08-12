@@ -1,10 +1,13 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import { offers } from "@/data/homeContent";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionContainer } from "@/components/ui/SectionContainer";
 import styles from "./OffersSection.module.css";
+import getIcon from "@/icons/get.png";
+import freeIcon from "@/icons/free.png";
 
 export function OffersSection() {
   return (
@@ -45,7 +48,12 @@ function OfferCard({ offer }: { offer: Offer }) {
     >
       <div className={styles.cardHeader}>
         <div className={`${styles.iconCircle} ${isDark ? styles.iconLight : styles.iconDark}`}>
-          <TagIcon />
+          <Image
+            src={offer.title.includes("Free Shipping") ? freeIcon : getIcon}
+            alt=""
+            width={50}
+            height={50}
+          />
         </div>
         <div>
           <h3 className={styles.cardTitle}>{offer.title}</h3>
@@ -62,18 +70,5 @@ function OfferCard({ offer }: { offer: Offer }) {
         {copied ? "Copied!" : "Copy Code"}
       </button>
     </article>
-  );
-}
-
-function TagIcon() {
-  return (
-    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden>
-      <path
-        d="M3 10L10 3L17 10L10 17L3 10Z"
-        stroke="currentColor"
-        strokeWidth="1"
-      />
-      <circle cx="10" cy="10" r="2" fill="currentColor" />
-    </svg>
   );
 }

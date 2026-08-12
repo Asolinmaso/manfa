@@ -2,10 +2,11 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import type { StaticImageData } from "next/image";
 import styles from "./SafeImage.module.css";
 
 type SafeImageProps = {
-  src: string;
+  src: string | StaticImageData;
   alt: string;
   fill?: boolean;
   width?: number;

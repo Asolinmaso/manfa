@@ -1,4 +1,3 @@
-import { SiteHeader } from "@/components/layout/SiteHeader";
 import { Hero } from "@/components/home/Hero";
 import { ValueProps } from "@/components/home/ValueProps";
 import { CategorySplit } from "@/components/home/CategorySplit";
@@ -14,10 +13,7 @@ import styles from "./page.module.css";
 export default function Home() {
   return (
     <>
-      <div className={styles.heroWrapper}>
-        <SiteHeader variant="overlay" activeHref="/" />
-        <Hero />
-      </div>
+      <Hero />
 
       <main className={styles.main}>
         <ValueProps />
@@ -28,6 +24,7 @@ export default function Home() {
           title="New Arrivals"
           products={newArrivals}
           layout="scroll"
+          titleAlign="center"
         />
         <PhilosophySection />
         <ProductGrid

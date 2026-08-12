@@ -1,3 +1,15 @@
+import p1 from "@/imgs/p1.png";
+import p2 from "@/imgs/p2.png";
+import p3 from "@/imgs/p3.png";
+import p4 from "@/imgs/p4.png";
+import p5 from "@/imgs/p5.png";
+import p6 from "@/imgs/p6.png";
+import p7 from "@/imgs/p7.png";
+import p8 from "@/imgs/p8.png";
+import p9 from "@/imgs/p9.png";
+import p10 from "@/imgs/p10.png";
+import p11 from "@/imgs/p11.png";
+
 export type NavLink = {
   label: string;
   href: string;
@@ -69,27 +81,27 @@ export const newArrivals = [
   {
     name: "Emerald Tailored Suit",
     price: "₹5,990",
-    image: "/home/Women.png",
+    image: p1,
   },
   {
     name: "Charcoal Utility Overshirt",
     price: "₹5,990",
-    image: "/home/Men.png",
+    image: p2,
   },
   {
     name: "Midnight Wrap Dress",
     price: "₹5,990",
-    image: "/home/Explore.png",
+    image: p3,
   },
   {
     name: "Camel Knit Polo",
     price: "₹5,990",
-    image: "/home/Banner.png",
+    image: p4,
   },
   {
     name: "Emerald Tailored Suit",
     price: "₹5,990",
-    image: "/home/Women.png",
+    image: p1,
   },
 ] as const;
 
@@ -97,40 +109,40 @@ export const signaturePieces = [
   {
     name: "Women's Ivory Power Suit",
     price: "₹8,990",
-    image: "/home/Women.png",
+    image: p5,
   },
   {
     name: "Men's Burgundy Blazer",
     price: "₹7,490",
-    image: "/home/Men.png",
+    image: p6,
   },
   {
     name: "Midnight Navy Dress",
     price: "₹6,990",
-    image: "/home/Explore.png",
+    image: p7,
   },
   {
     name: "Men's Charcoal Overshirt",
     price: "₹5,990",
-    image: "/home/Banner.png",
+    image: p8,
   },
 ] as const;
 
 export const occasions = [
   {
     title: "Work",
-    description: "Tailored essentials for modern professionals.",
-    image: "/home/Women.png",
+    description: "Tailored essentials for\nmodern professionals.",
+    image: p9,
   },
   {
     title: "Weekend",
-    description: "Relaxed pieces with timeless appeal.",
-    image: "/home/Men.png",
+    description: "Relaxed pieces with\ntimeless appeal.",
+    image: p10,
   },
   {
     title: "Travel",
-    description: "Designed for movement and versatility.",
-    image: "/home/Explore.png",
+    description: "Designed for movement\nand versatility.",
+    image: p11,
   },
 ] as const;
 
@@ -166,4 +178,4 @@ export const images = {
 } as const;
 
 export const brandTagline =
-  "Minimal. Timeless. Purposeful. Designed for changing every lifestyle";
+  "Minimal. Timeless. Purposeful.\nDesigned for changing every\nlifestyle";

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { SiteHeader } from "@/components/layout/SiteHeader";
 import { AboutHero } from "@/components/about/AboutHero";
 import { SplitContentSection } from "@/components/about/SplitContentSection";
 import { VisionMissionSection } from "@/components/about/VisionMissionSection";
@@ -20,7 +19,6 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      <SiteHeader variant="solid" activeHref="/about" />
       <main className={styles.main}>
         <AboutHero />
         <SplitContentSection
