@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { SiteHeader } from "@/components/layout/SiteHeader";
 import { Footer } from "@/components/home/Footer";
 import { SectionContainer } from "@/components/ui/SectionContainer";
 import { ProfileTabs } from "@/components/profile/ProfileTabs";

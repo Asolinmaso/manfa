@@ -31,9 +31,6 @@ export function Hero() {
           </Button>
         </div>
       </div>
-      <div className={styles.scrollHint} aria-hidden>
-        <span className={styles.scrollDot} />
-      </div>
     </section>
   );
 }

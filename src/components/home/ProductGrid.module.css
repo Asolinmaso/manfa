@@ -33,6 +33,10 @@
   scroll-snap-align: start;
 }
 
+.productsScroll .image {
+  object-position: top;
+}
+
 .productsGrid .cardSlot {
   min-width: 0;
 }
@@ -94,6 +98,10 @@
 
 .wishlist:hover .heartWrap {
   transform: scale(1.2);
+}
+
+.likeActive {
+  filter: invert(20%) sepia(30%) saturate(1200%) hue-rotate(320deg) brightness(0.85);
 }
 
 .heartPop {

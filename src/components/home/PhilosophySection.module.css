@@ -64,10 +64,13 @@
 
 .imagePanel {
   position: relative;
-  min-height: 300px;
+  width: 100%;
+  aspect-ratio: 1439 / 496;
+  align-self: center;
   background: var(--placeholder);
   overflow: hidden;
   width: 100%;
+  min-height: 496px;
 }
 
 .image {

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
-import { SiteHeader } from "@/components/layout/SiteHeader";
 import { Footer } from "@/components/home/Footer";
 import { SectionContainer } from "@/components/ui/SectionContainer";
 import { ProfileTabs } from "@/components/profile/ProfileTabs";
@@ -24,7 +23,6 @@ export default async function AccountPage() {
 
   return (
     <>
-      <SiteHeader variant="solid" />
       <main className={styles.main}>
         <ProfileTabs activeTab="account" />
         <SectionContainer className={styles.content}>

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { SiteHeader } from "@/components/layout/SiteHeader";
 import { ContactHero } from "@/components/contact/ContactHero";
 import { ContactInfo } from "@/components/contact/ContactInfo";
 import { ContactForm } from "@/components/contact/ContactForm";
@@ -16,7 +15,6 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
-      <SiteHeader variant="solid" activeHref="/contact" />
       <main className={styles.main}>
         <ContactHero />
         <SectionContainer className={styles.mainSection}>

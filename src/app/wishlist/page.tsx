@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { SiteHeader } from "@/components/layout/SiteHeader";
 import { Footer } from "@/components/home/Footer";
 import { WishlistSection } from "@/components/wishlist/WishlistSection";
 import { SimilarProductsSection } from "@/components/wishlist/SimilarProductsSection";
@@ -13,7 +12,6 @@ export const metadata: Metadata = {
 export default function WishlistPage() {
   return (
     <>
-      <SiteHeader variant="solid" activeHref="/wishlist" />
       <main className={styles.main}>
         <WishlistSection />
         <SimilarProductsSection />

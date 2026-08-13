@@ -11,21 +11,23 @@ import { useAuth } from "@/components/auth/AuthProvider";
 import styles from "./SiteHeader.module.css";
 
 type SiteHeaderProps = {
-  variant: "overlay" | "solid";
+  variant?: "overlay" | "solid";
   activeHref?: string;
   cartCount?: number;
 };
 
 export function SiteHeader({
   variant,
-  activeHref = "/",
+  activeHref,
   cartCount = defaultCartCount,
 }: SiteHeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [logoError, setLogoError] = useState(false);
   const { user, loading } = useAuth();
   const pathname = usePathname();
-  const isSolid = variant === "solid";
+  const isSolid =
+    variant === "solid" || (variant === undefined && pathname !== "/");
+  const active = activeHref ?? pathname;
   const isAuthenticated = Boolean(user?.emailVerified);
   const isWishlistPage = pathname === "/wishlist";
   const isCartPage = pathname === "/cart";
@@ -56,7 +58,7 @@ export function SiteHeader({
         >
           <ul className={styles.navList}>
             {mainNav.map((link) => {
-              const isActive = link.href === activeHref;
+              const isActive = link.href === active;
               const className = isActive ? styles.navActive : styles.navLink;
 
               return (

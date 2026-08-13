@@ -1,6 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
+import type { StaticImageData } from "next/image";
+import likeIcon from "@/icons/like.png";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
 import { SafeImage } from "@/components/ui/SafeImage";
@@ -10,7 +13,7 @@ import styles from "./ProductGrid.module.css";
 type Product = {
   name: string;
   price: string;
-  image: string;
+  image: string | StaticImageData;
 };
 
 type ProductGridProps = {
@@ -91,7 +94,14 @@ function ProductCard({ product, layout }: { product: Product; layout: "scroll" |
           onAnimationEnd={() => setPopping(false)}
         >
           <span className={`${styles.heartWrap} ${popping ? styles.heartPop : ""}`}>
-            <HeartIcon filled={wishlisted} />
+            <Image
+              src={likeIcon}
+              alt=""
+              width={27}
+              height={24}
+              aria-hidden
+              className={wishlisted ? styles.likeActive : undefined}
+            />
           </span>
         </button>
       </div>
@@ -100,19 +110,5 @@ function ProductCard({ product, layout }: { product: Product; layout: "scroll" |
         <p className={styles.price}>{product.price}</p>
       </div>
     </article>
-  );
-}
-
-function HeartIcon({ filled }: { filled?: boolean }) {
-  return (
-    <svg width="27" height="24" viewBox="0 0 27 24" fill="none" aria-hidden>
-      <path
-        d="M13.5 21.5L2.5 10.5C0.5 8.5 0.5 5.5 2.5 3.5C4.5 1.5 7.5 1.5 9.5 3.5L13.5 7.5L17.5 3.5C19.5 1.5 22.5 1.5 24.5 3.5C26.5 5.5 26.5 8.5 24.5 10.5L13.5 21.5Z"
-        stroke={filled ? "var(--burgundy)" : "currentColor"}
-        strokeWidth="1.5"
-        strokeLinejoin="round"
-        fill={filled ? "var(--burgundy)" : "none"}
-      />
-    </svg>
   );
 }
